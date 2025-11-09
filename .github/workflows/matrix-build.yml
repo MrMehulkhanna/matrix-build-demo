@@ -1,0 +1,45 @@
+name: Multi-Platform Matrix Build with Artifacts
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    name: Build for Python ${{ matrix.python-version }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ['3.9', '3.10', '3.11']
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: matrix-c5c5b38
+        run: echo "🚀 Building and testing for Python ${{ matrix.python-version }} on ${{ matrix.os }}"
+
+      - name: Run build step
+        run: |
+          echo "Build Summary:" > build_output.txt
+          echo "OS: ${{ matrix.os }}" >> build_output.txt
+          echo "Python Version: ${{ matrix.python-version }}" >> build_output.txt
+          echo "Build started at: $(date)" >> build_output.txt
+          echo "Python Path:" >> build_output.txt
+          which python >> build_output.txt
+          echo "Python Version Info:" >> build_output.txt
+          python --version >> build_output.txt
+          echo "✅ Build completed successfully." >> build_output.txt
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-c5c5b38-${{ matrix.os }}-py${{ matrix.python-version }}
+          path: build_output.txt
