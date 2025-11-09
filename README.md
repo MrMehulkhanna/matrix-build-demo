@@ -13,4 +13,4 @@ This repository demonstrates a GitHub Actions matrix build workflow that:
 
 ### 👤 Author
 **Garima Dahuja**  
-📧 garimadhuja@gmail.com
+📧 23f2001539@ds.study.iitm.ac.in
