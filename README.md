@@ -11,6 +11,5 @@ This repository demonstrates a GitHub Actions matrix build workflow that:
 - Includes a step with identifier **matrix-c5c5b38**
 - README includes author email
 
-### 👤 Author
-**Garima Dahuja**  
-📧 23f2001539@ds.study.iitm.ac.in
+
+
